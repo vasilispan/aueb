@@ -30,17 +30,27 @@ dec=pd.read_csv(december, usecols=['MONTH','CARRIER','FLIGHTS','ORIGIN','DEST', 
 
 #concatenate all dataframes to one for the year 2015
 frames=[jan,feb,mar,apr,may,jun,jul,sep,oct,nov,dec]
-flights = pd.concat(frames,axis=0, ignore_index=True)
-#get sum of flights per airport
+flights = pd.concat(frames,axis=0, ignore_index=True) #flights DataFrame
+
+#calculate the sum of flights per airport,this returns a groupby object
 flights_per_airport= flights.groupby(by=['ORIGIN'])['FLIGHTS'].sum()
-#map previous to 2015 dataframe
+#calculate sum of delays per airport
+delays_per_airport = flights.groupby(by=['ORIGIN'])['DEP_DELAY_NEW'].sum()
+
+#map flights per airport to flights DataFrame so we can drop the outliers ( <0.01 )
 flights['FLIGHTS_SUM'] = flights['ORIGIN'].map(flights_per_airport)
-# drop rows where we have <0.01
+#create a new DataFrame flights2 where outliers are gone, resetting the index, and dropping unncessary columns
 flights2 = flights[flights.FLIGHTS_SUM > np.percentile(flights_per_airport,1)]
 flights2 = flights2.reset_index()
-#drop unnecessary columns for question1
 flights2=flights2.drop({'index','MONTH','CARRIER','DEST','FLIGHTS','FLIGHTS_SUM'},1)
-#and BAM we have 4 airports gone
+
+#comparing count of flights' and flights2's ORIGIN variable, we see 4 less entries
 flights.ORIGIN.describe()  # -> unique 322
 flights2.ORIGIN.describe() # -> unique 317
 
+#currently i have  5308292 rows × 3 columns DAtaframe with [ORIGIN 	DEP_DELAY_NEW 	DELAY_SUM] columns and rows 0:5308292
+#creating a new DataFrame flights3 whose index is set as ORIGIN,DELAY_SUM,DEP_DELAY_NEW
+flights3 = flights2.set_index(['ORIGIN','DELAY_SUM','DEP_DELAY_NEW']).sort_index()
+#attempting to delete DEP_DELAY_NEW so I am left with ORIGIN and DELAY_SUM
+flights3 = flights3.drop(['DEP_DELAY_NEW'],1) # gives error "labels ['DEP_DELAY_NEW'] not contained in axis"
+# how to proceed?
