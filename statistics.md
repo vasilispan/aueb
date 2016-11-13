@@ -6,5 +6,5 @@ b2 <-rbinom (10000,10,0.05)
 
 #Gamma
 
-g1 <- rgamma(100, a=5, scale =4)
+g1 <- rgamma(100, a=5, scale =4)\n
 g2 <- rgamma(10000,a = 5, scale=4)
