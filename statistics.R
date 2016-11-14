@@ -81,6 +81,8 @@ p1min<-min(mean(p1),median(p1))
 p1max<-max(mean(p1),median(p1))
 print("get proportion :")
 dfp1<-p1[p1>=p1min & p1<=p1max]
+propp1<-100*(length(dfp1)/length(p1))
+sprintf("Proportion of p1 is %s", propp1)
 
 print("For Poisson p2: " )
 p2min<-min(mean(p2),median(p2))
