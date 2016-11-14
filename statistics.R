@@ -1,31 +1,41 @@
 print("Set seed to 10005")
 set.seed(10005)
 
-#Binomial
-#100
 print("Poisson with 100 RS and its histogram")
 print("Named p1")
+par(mfrow=c(1,2))
 p1<-rpois(100,1)
-hist(p1,main=paste("100 random samples of Poisson"),breaks=seq(0,10,1))
+x1n<-seq(-4,4,0.01)
+dx1n<-dnorm(x1n)
+hist(p1,freq=F, ylim=c(0, max(dx1n)), col="lightblue", xlab="x1", main="Histogram with Poisson d with 100 RS") 
+lines(x1n, dx1n,col="red",lty=2,lwd=2)
 
-#10000
 print("Poisson with 10000 RS and its histogram")
 print("Named p2")
+par(mfrow=c(1,2))
 p2<-rpois(10000,1)
-hist(p2,main=paste("10000 random samples of Poisson"),breaks=seq(0,17+.5,1))
+x1n<-seq(-4,4,0.01)
+dx1n<-dnorm(x1n)
+hist(p2,freq=F, ylim=c(0, max(dx1n)), col="lightblue", xlab="x1", main="Histogram with Poisson d with 10000 RS") 
+lines(x1n, dx1n,col="red",lty=2,lwd=2)
 
-#Gamma
-#100
 print("Gamma with 100 RS and its histogram")
 print("Named g1")
+par(mfrow=c(1,2))
 g1<-rgamma(100,5,4)
-hist(g1,main=paste("100 random samples of Gamma"),breaks=seq(0-.5,10+.5,1))
+x1n<-seq(-4,4,0.01)
+dx1n<-dnorm(x1n)
+hist(g1,freq=F, ylim=c(0, max(dx1n)), col="lightblue", xlab="x1", main="Histogram with Gamma d with 100 RS") 
+lines(x1n, dx1n,col="red",lty=2,lwd=2)
 
-#10000
 print("Gamma with 10000 RS and its histogram")
 print("Named g2")
+par(mfrow=c(1,2))
 g2<-rgamma(10000,5,4)
-hist(g2,main=paste("10000 random samples of Gamma"),breaks=seq(0-.5,10+.5,1))
+x1n<-seq(-4,4,0.01)
+dx1n<-dnorm(x1n)
+hist(g2,freq=F, ylim=c(0, max(dx1n)), col="lightblue", xlab="x1", main="Histogram with Gamma d with 10000 RS") 
+lines(x1n, dx1n,col="red",lty=2,lwd=2)
 
 print("Get statistics mean,median,sd,IQR for the above random samples")
 print("Statistics for Poisson with 100 RS")
@@ -59,3 +69,7 @@ mean(n1)
 median(n1)
 sd(n1)
 IQR(n1)
+
+print("What is the proportion of the sample data in the region:
+[min(mean; median); max(mean; median)]
+What is the theoretic proportion of this region when the true distribution is used?")
