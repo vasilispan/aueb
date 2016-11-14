@@ -75,3 +75,7 @@ IQR(n1)
 print("What is the proportion of the sample data in the region:
 [min(mean; median); max(mean; median)]
 What is the theoretic proportion of this region when the true distribution is used?")
+
+print("For Poisson p1: " )
+p1min<-min(mean(p1),median(p1))
+p1max<-max(mean(p1),median(p1))
