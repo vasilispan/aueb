@@ -1,6 +1,7 @@
 print("Set seed to 10005")
 set.seed(10005)
 
+print("Provide a graphical representation (visualization) of your data")
 print("Poisson with 100 RS and its histogram")
 print("Named p1")
 par(mfrow=c(1,2))
@@ -44,6 +45,7 @@ median(p1)
 sd(p1)
 IQR(p1)
 
+print("Get an estimate of the: mean; sd; median; IQR. What are the theoretic values of these statistics when the true distribution is used?")
 print("Statistics for Poisson with 10000 RS")
 mean(p2)
 median(p2)
