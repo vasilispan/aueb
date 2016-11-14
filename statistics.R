@@ -100,3 +100,9 @@ g2max<-max(mean(g2),median(g2))
 print("get proportion :")
 dfg2<-g2[g2>=g2min & g2<=g2max]
 
+
+print("For True (Normal) n1: " )
+n1min<-min(mean(n1),median(n1))
+n1max<-max(mean(n1),median(n1))
+print("get proportion :")
+dfn1<-n1[n1>=n1min & n1<=n1max]
