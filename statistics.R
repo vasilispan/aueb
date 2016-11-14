@@ -79,3 +79,24 @@ What is the theoretic proportion of this region when the true distribution is us
 print("For Poisson p1: " )
 p1min<-min(mean(p1),median(p1))
 p1max<-max(mean(p1),median(p1))
+print("get proportion :")
+dfp1<-p1[p1>=p1min & p1<=p1max]
+
+print("For Poisson p2: " )
+p2min<-min(mean(p2),median(p2))
+p2max<-max(mean(p2),median(p2))
+print("get proportion :")
+dfp2<-p2[p2>=p2min & p2<=p2max]
+
+print("For Gamma g1: " )
+g1min<-min(mean(g1),median(g1))
+g1max<-max(mean(g1),median(g1))
+print("get proportion :")
+dfg1<-g1[g1>=g1min & g1<=p1max]
+
+print("For Gamma g2: " )
+g2min<-min(mean(g2),median(g2))
+g2max<-max(mean(g2),median(g2))
+print("get proportion :")
+dfg2<-g2[g2>=g2min & g2<=g2max]
+
