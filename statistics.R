@@ -112,8 +112,8 @@ proportions(g1)
 print("For Gamma g2: " )
 proportions(g2)
 
-print("For true distribution n1: ")
-proportions(n1)
+print("For Gamma True: ")
+proportions(gtrue)
 
 print("What is the quantile of the sample data that are at or below the lowest 1%? What
 is the respective theoretic quantile when the true distribution is used?
@@ -126,21 +126,24 @@ abline(0,1,col="blue")
 
 print("For Poisson p2")
 qqnorm(p2)
-qline(p2,col="red",lty=1,lwd=2)
+qqline(p2,col="red",lty=1,lwd=2)
 abline(0,1,col="blue")
 
 print("For Gamma g1")
 qqnorm(g1)
-qline(g1,col="red",lty=1,lwd=2)
+qqline(g1,col="red",lty=1,lwd=2)
 abline(0,1,col="blue")
 
 print("For Gamma g2")
 qqnorm(g2)
-qline(g2,col="red",lty=1,lwd=2)
+qqline(g2,col="red",lty=1,lwd=2)
 abline(0,1,col="blue")
 
 print("Comment on the discrepancies between theoretic and sample evaluated statistics
 in questions (b)-(e).")
+print("Answer: Of course in this exercise we are not paying respect to the optimal parameters which define the characteristics of \n
+a distribution, such as the λ regarding Poisson's case, and α,β regarding Gamma. The data does not follow the trend of True \n
+distributions because of such adjustments")
 
 print("Under the assumption of squared error loss function use each of the data set to
 provide your best prediction of a single future observable.")
