@@ -138,4 +138,4 @@ in questions (b)-(e).")
 
 print("Under the assumption of squared error loss function use each of the data set to
 provide your best prediction of a single future observable.")
-
+print("Answer: best prediction is E[X]")
