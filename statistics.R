@@ -82,7 +82,7 @@ proportions <- function(x){
   max<-max(mean(x),median(x))
   props<-x[x>=min & x<=max]
   ratio<-(length(props)/length(x))*100
-  sprintf("Ratio is %s %% " , ratio)
+  sprintf("Ratio over original sample %s is %s %% " ,deparse(substitute(x)),ratio)
 }
 
 print("For Poisson p1: " )
@@ -100,4 +100,6 @@ proportions(g2)
 print("For true distribution n1: ")
 proportions(n1)
 
+print("What is the quantile of the sample data that are at or below the lowest 1%? What
+is the respective theoretic quantile when the true distribution is used?")
 
