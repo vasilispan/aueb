@@ -18,7 +18,7 @@ dx1n<-dpois(10000,2.5)
 hist(p2,freq=F,  col="lightblue", xlab="x1", main="Histogram with Poisson d with 10000 RS") 
 lines(density(p1),col="red")
 
-print("Now for Poisson with λ=10")
+print("Now for Poisson True with λ=10")
 print("Named ptrue")
 par(mfrow=c(1,2))
 ptrue<-rpois(100,10)
@@ -41,6 +41,14 @@ g2<-rgamma(10000,5,4)
 dx1n<-dgamma(10000,5,4)
 hist(g2,freq=F, ylim=c(0, max(dx1n)), col="lightblue", xlab="x1", main="Histogram with Gamma d with 10000 RS") 
 lines(density(g2),col="red")
+
+print("Now for Gamma with a=b=1")
+print("Named gtrue")
+par(mfrow=c(1,2))
+gtrue<-rgamma(100,1,1)
+dx1n<-dgamma(100,1,1)
+hist(gtrue,freq=F, ylim=c(0, max(dx1n)), col="lightblue", xlab="x1", main="Histogram with Gamma d with 10000 RS") 
+lines(density(gtrue),col="red")
 
 print("Get statistics mean,median,sd,IQR for the above random samples")
 print("Statistics for Poisson with 100 RS")
@@ -94,6 +102,9 @@ proportions(p1)
 
 print("For Poisson p2: " )
 proportions(p2)
+
+print("For Poisson True: ")
+proportions(ptrue)
 
 print("For Gamma g1: " )
 proportions(g1)
