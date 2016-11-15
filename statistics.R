@@ -101,5 +101,28 @@ print("For true distribution n1: ")
 proportions(n1)
 
 print("What is the quantile of the sample data that are at or below the lowest 1%? What
+is the respective theoretic quantile when the true distribution is used?
+What is the quantile of the sample data that are at or above the upper 1%? What
 is the respective theoretic quantile when the true distribution is used?")
+print("For Poisson p1")
+qqnorm(p1)
+qqline(p1,col="red",lty=1,lwd=2)
+abline(0,1,col="blue")
 
+print("For Poisson p2")
+qqnorm(p2)
+qline(p2,col="red",lty=1,lwd=2)
+abline(0,1,col="blue")
+
+print("For Gamma g1")
+qqnorm(g1)
+qline(g1,col="red",lty=1,lwd=2)
+abline(0,1,col="blue")
+
+print("For Gamma g2")
+qqnorm(g2)
+qline(g2,col="red",lty=1,lwd=2)
+abline(0,1,col="blue")
+
+print("Comment on the discrepancies between theoretic and sample evaluated statistics
+in questions (b)-(e).")
