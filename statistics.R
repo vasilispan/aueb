@@ -75,36 +75,24 @@ IQR(n1)
 print("What is the proportion of the sample data in the region:
 [min(mean; median); max(mean; median)]
 What is the theoretic proportion of this region when the true distribution is used?")
+print("Function to calculate ratio of reduced vectors")
+
+proportions <- function(x){
+  min<-min(mean(x),median(x))
+  max<-max(mean(x),median(x))
+  props<-x[x>=min & x<=max]
+  ratio<-(length(props)/length(x))*100
+  sprintf("Ratio is %s %% " , ratio)
+}
 
 print("For Poisson p1: " )
-p1min<-min(mean(p1),median(p1))
-p1max<-max(mean(p1),median(p1))
-print("get proportion :")
-dfp1<-p1[p1>=p1min & p1<=p1max]
-propp1<-100*(length(dfp1)/length(p1))
-sprintf("Proportion of p1 is %s", propp1)
+proportions(p1)
 
 print("For Poisson p2: " )
-p2min<-min(mean(p2),median(p2))
-p2max<-max(mean(p2),median(p2))
-print("get proportion :")
-dfp2<-p2[p2>=p2min & p2<=p2max]
+proportions(p2)
 
 print("For Gamma g1: " )
-g1min<-min(mean(g1),median(g1))
-g1max<-max(mean(g1),median(g1))
-print("get proportion :")
-dfg1<-g1[g1>=g1min & g1<=p1max]
+proportions(g1)
 
 print("For Gamma g2: " )
-g2min<-min(mean(g2),median(g2))
-g2max<-max(mean(g2),median(g2))
-print("get proportion :")
-dfg2<-g2[g2>=g2min & g2<=g2max]
-
-
-print("For True (Normal) n1: " )
-n1min<-min(mean(n1),median(n1))
-n1max<-max(mean(n1),median(n1))
-print("get proportion :")
-dfn1<-n1[n1>=n1min & n1<=n1max]
+proportions(g2)
