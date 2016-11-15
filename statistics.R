@@ -96,3 +96,8 @@ proportions(g1)
 
 print("For Gamma g2: " )
 proportions(g2)
+
+print("For true distribution n1: ")
+proportions(n1)
+
+
