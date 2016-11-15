@@ -126,3 +126,7 @@ abline(0,1,col="blue")
 
 print("Comment on the discrepancies between theoretic and sample evaluated statistics
 in questions (b)-(e).")
+
+print("Under the assumption of squared error loss function use each of the data set to
+provide your best prediction of a single future observable.")
+
