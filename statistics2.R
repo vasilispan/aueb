@@ -6,3 +6,6 @@ result <- apply(X = df,MARGIN=1, FUN= chisq.test)
 str(chisq.test(df[1, ]))
 
 plot(unlist(lapply(result, "[", "p.value"), use.names = FALSE))
+
+print(" P-Values are largely < 0.05 using Pearson's Chi-Squared test, so we do not reject the null hypothesis 
+that there is equiprobability")
