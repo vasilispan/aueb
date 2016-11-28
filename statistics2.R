@@ -15,4 +15,6 @@ that there is equiprobability")
 #first make a N=50000 vector
 
 dfnew<-unlist(df,use.names=FALSE)
-
+dfnew2<-sort(dfnew)
+hist(dfnew2,probability=TRUE)
+lines(density(dfnew), col="red")
