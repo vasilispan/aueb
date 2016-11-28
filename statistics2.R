@@ -9,3 +9,5 @@ plot(unlist(lapply(result, "[", "p.value"), use.names = FALSE))
 
 print(" P-Values are largely < 0.05 using Pearson's Chi-Squared test, so we do not reject the null hypothesis 
 that there is equiprobability")
+
+#Maybe generate a Normal sample of N=30 and compare to first column of lottery data
