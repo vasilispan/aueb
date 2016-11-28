@@ -7,8 +7,8 @@ str(chisq.test(df[1, ]))
 
 plot(unlist(lapply(result, "[", "p.value"), use.names = FALSE))
 
-print(" P-Values are largely < 0.05 using Pearson's Chi-Squared test, so we do not reject the null hypothesis 
-that there is equiprobability")
+print("Large amount of P-Values are  < 0.05 using Pearson's Chi-Squared test, so we do reject the null hypothesis 
+that there is equiprobability of data")
 
 #Maybe generate a Normal sample of N=30 and compare to first column of lottery data
 #plot all data
