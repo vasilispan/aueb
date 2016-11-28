@@ -18,6 +18,9 @@ plot_columns = function(x){
 	line <- readline()
 }
 
+print("plot histograms of each column of the data")
 apply(df,2,function(x) plot_columns(x))
-  
-  
+print("Apply chisq.test per column. We again reject the null hypothesis  
+apply(df,2,chisq.test)
+
+	
