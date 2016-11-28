@@ -11,3 +11,8 @@ print(" P-Values are largely < 0.05 using Pearson's Chi-Squared test, so we do n
 that there is equiprobability")
 
 #Maybe generate a Normal sample of N=30 and compare to first column of lottery data
+#plot all data
+#first make a N=50000 vector
+
+dfnew<-unlist(df,use.names=FALSE)
+
