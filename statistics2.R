@@ -1,3 +1,8 @@
+print("=====================================")
+print("=====================================")
+print("Exercise 7")
+print("=====================================")
+print("=====================================")
 require(gdata)
 df = read.xls("Assignment_2_Data.xlsx" ,sheet ="Lottery_Data",header=TRUE)
 
@@ -31,4 +36,11 @@ apply_statistics(df[1:1000,])
 		
 print("Even with smaller sample sizes of N=100 or N=1000, we cannot safely determine favorable numbers, apart from the edges of the
 vector c(1:30)")
+	     
+print("=====================================")
+print("=====================================")
+print("Exercise 8")
+print("=====================================")
+print("=====================================")
+	      
 	     
