@@ -4,7 +4,8 @@ df = read.xls("Assignment_2_Data.xlsx" ,sheet ="Lottery_Data",header=TRUE)
 apply_statistics = function(df){
 	result <- apply(X = df,MARGIN=1, FUN= chisq.test)
 	str(chisq.test(df[1, ]))
-	plot(unlist(lapply(result, "[", "p.value"), use.names = FALSE))
+	print("Plot Histogram of dataframe")
+	plot(unlist(lapply(result, "[", "p.value"), use.names = FALSE),main = ("Histogram of dataframe",df)
 	abline(h=0.05,col="red")
 	print("Large amount of P-Values are  < 0.05 using Pearson's Chi-Squared test, so we do reject the null hypothesis 
 	that there is equiprobability of data")
@@ -28,3 +29,6 @@ print("New dataframe with first 100 rows only")
 apply_statistics(df[1:100,])
 apply_statistics(df[1:1000,])	      
 		
+print("Even with smaller sample sizes of N=100 or N=1000, we cannot safely determine favorable numbers, apart from the edges of the
+vector c(1:30)")
+	     
