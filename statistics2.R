@@ -10,11 +10,14 @@ plot(unlist(lapply(result, "[", "p.value"), use.names = FALSE))
 print("Large amount of P-Values are  < 0.05 using Pearson's Chi-Squared test, so we do reject the null hypothesis 
 that there is equiprobability of data")
 
-#Maybe generate a Normal sample of N=30 and compare to first column of lottery data
-#plot all data
-#first make a N=50000 vector
+plot_columns = function(x){
+	y<-sort(x)
+	hist(y,probability=TRUE,col="blue",main = paste("Histogram of columns of lottery_data"))
+	lines(density(y),col="red")
+	cat ("Press [enter] to continue")
+	line <- readline()
+}
 
-dfnew<-unlist(df,use.names=FALSE)
-dfnew2<-sort(dfnew)
-hist(dfnew2,probability=TRUE)
-lines(density(dfnew), col="red")
+apply(df,2,function(x) plot_columns(x))
+  
+  
