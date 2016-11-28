@@ -43,4 +43,12 @@ print("Exercise 8")
 print("=====================================")
 print("=====================================")
 	      
-	     
+print("Student Name Chrysanthos Lianos corresponds to 8th column in X,Y,W,Z sheets")
+X = read.xls("Assignment_2_Data.xlsx" ,sheet ="X",header=TRUE)
+X= X[8]
+Y = read.xls("Assignment_2_Data.xlsx" ,sheet ="Y",header=TRUE)
+Y= Y[8]
+W = read.xls("Assignment_2_Data.xlsx" ,sheet ="W",header=TRUE)
+W= W[8]
+Z = read.xls("Assignment_2_Data.xlsx" ,sheet ="Z",header=TRUE)
+Z= Z[8]
