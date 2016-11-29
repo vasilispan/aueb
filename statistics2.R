@@ -61,6 +61,12 @@ Y<-unlist(Y)
 Z<-unlist(Z)	     
 	     
 plot(density(W))	      
+abline(v=mean(W),col="red")		  
 plot(density(X))
+abline(v=mean(X),col="red")		  
 plot(density(Y))
+abline(v=mean(Y),col="red")		  
 plot(density(Z))		  
+abline(v=mean(Z),col="red")
+		  
+print("W seems to be coming from a normal distribution")	      
