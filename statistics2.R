@@ -53,7 +53,14 @@ W= W[8]
 Z = read.xls("Assignment_2_Data.xlsx" ,sheet ="Z",header=TRUE)
 Z= Z[8]
 
-plot(unlist(X))
-plot(unlist(Y))
-plot(unlist(W))
-plot(unlist(Z))
+
+print("Permanently unlist to use without errors ") 
+W<-unlist(W)
+X<-unlist(X)	 
+Y<-unlist(Y)
+Z<-unlist(Z)	     
+	     
+plot(density(W))	      
+plot(density(X))
+plot(density(Y))
+plot(density(Z))		  
