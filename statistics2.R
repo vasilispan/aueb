@@ -78,3 +78,12 @@ fitdist(X,dpois,method="mle")
 
 #W to Poisson and get an esimate using MLE
 fitdist(W,dpois,method="mle")
+
+#Y to exponential distribution with MME
+fitdist(Y,pexp,method ="mme")
+#Fitting of the distribution ' exp ' by matching moments 
+#Parameters:
+#         estimate
+#rate 3.529312e-13
+
+
