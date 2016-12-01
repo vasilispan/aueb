@@ -69,5 +69,12 @@ plot(density(Y))
 abline(v=mean(Y),col="red")		  
 plot(density(Z))		  
 abline(v=mean(Z),col="red")
-		  
+
+#install library fitdistrplus
+require(fitdistrplus)
 #   X and W are discrete, Y and Z are continuous	      
+#fit X to poisson distribution and get an estimate using MLE
+fitdist(X,dpois,method="mle")
+
+#W to Poisson and get an esimate using MLE
+fitdist(W,dpois,method="mle")
