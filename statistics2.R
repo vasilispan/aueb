@@ -37,6 +37,8 @@ apply_statistics(df[1:1000,])
 		
 print("Even with smaller sample sizes of N=100 or N=1000, we cannot safely determine favorable numbers, apart from the edges of the
 vector c(1:30)")
+
+
 	     
 print("=====================================")
 print("=====================================")
@@ -72,7 +74,8 @@ abline(v=mean(Z),col="red")
 
 #install library fitdistrplus
 require(fitdistrplus)
-#   X and W are discrete, Y and Z are continuous	      
+#   X and W are discrete, Y and Z are continuous
+
 #fit X to poisson distribution and get an estimate using MLE
 fitdist(X,dpois,method="mle")
 
@@ -81,9 +84,7 @@ fitdist(W,dpois,method="mle")
 
 #Y to exponential distribution with MME
 fitdist(Y,pexp,method ="mme")
-#Fitting of the distribution ' exp ' by matching moments 
-#Parameters:
-#         estimate
-#rate 3.529312e-13
 
+#Z to Normal 
+fitdist(Z,dnorm)
 
