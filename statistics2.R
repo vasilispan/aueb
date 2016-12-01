@@ -70,4 +70,4 @@ abline(v=mean(Y),col="red")
 plot(density(Z))		  
 abline(v=mean(Z),col="red")
 		  
-print("W seems to be coming from a normal distribution")	      
+#   X and W are discrete, Y and Z are continuous	      
