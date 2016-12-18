@@ -29,3 +29,16 @@ fitX3_W<-aov(X3~factor(W),data=data1)
 summary(fitX3_W)
 layout(matrix(1:4,2,2))
 plot(fitX3_W)
+
+#(iii)
+qqnorm(fitY_W$residuals,main = "QQnorm for Y~W")
+qqline(fitY_W$residuals,col="red",lty=1,lwd=2)
+
+qqnorm(fitX1_W$residuals,main = "QQnorm for X1~W")
+qqline(fitX1_W$residuals,col="red",lty=1,lwd=2)
+
+qqnorm(fitX2_W$residuals,main = "QQnorm for X2~W")
+qqline(fitX2_W$residuals,col="red",lty=1,lwd=2)
+
+qqnorm(fitX3_W$residuals,main = "QQnorm for X3~W")
+qqline(fitX3_W$residuals,col="red",lty=1,lwd=2)
