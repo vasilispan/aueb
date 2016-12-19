@@ -172,7 +172,7 @@ layout(matrix(1:4,2,2))
 plot(fit)
 
 print("The model does not fit the assumptions. To begin with, the 'Residuals vs Fitted' plot has a pattern to it
-	, so it is not homoscedastic by nature")
+	, so it is not heteroscedastic by nature")
 # Now with the interaction term
 fit<-aov(Y~Y*W*Z,data=data2)
 plot(fit)
