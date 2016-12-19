@@ -1,34 +1,34 @@
 require(gdata)
 #Question 1
 data1 = read.xls("Assignment_3_Data.xlsx",sheet="Data1" ,header=TRUE)
-head(df)
+head(data1)
 #(a)
 #(i)
-plot(factor(data1$W),data1$Y)
-plot(factor(data1$W),data1$X1)
-plot(factor(data1$W),data1$X2)
-plot(factor(data1$W),data1$X3)
+plot(factor(data1$W),data1$Y,main="W against Y ")
+plot(factor(data1$W),data1$X1,main="W against X1")
+plot(factor(data1$W),data1$X2,main="W against X2")
+plot(factor(data1$W),data1$X3,main="W against X3 ")
 
 #(ii)
 fitY_W<-aov(Y~factor(W),data=data1)
 summary(fitY_W)
 layout(matrix(1:4,2,2))
-plot(fitY_W)
+plot(fitY_W,main="Summary plot for aov(Y,W)")
 
 fitX1_W<-aov(X1~factor(W),data=data1)
 summary(fitX1_W)
 layout(matrix(1:4,2,2))
-plot(fitX1_W)
+plot(fitX1_W,main="Summary plot for aov(Y,X1)")
 
 fitX2_W<-aov(X2~factor(W),data=data1)
 summary(fitX2_W)
 layout(matrix(1:4,2,2))
-plot(fitX2_W)
+plot(fitX2_W,main="Summary plot for aov(Y,X2)")
 
 fitX3_W<-aov(X3~factor(W),data=data1)
 summary(fitX3_W)
 layout(matrix(1:4,2,2))
-plot(fitX3_W)
+plot(fitX3_W,main="Summary plot for aov(Y,X3)")
 
 #(iii)
 qqnorm(fitY_W$residuals,main = "QQnorm for Y~W")
@@ -42,3 +42,5 @@ qqline(fitX2_W$residuals,col="red",lty=1,lwd=2)
 
 qqnorm(fitX3_W$residuals,main = "QQnorm for X3~W")
 qqline(fitX3_W$residuals,col="red",lty=1,lwd=2)
+
+
