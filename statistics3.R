@@ -139,3 +139,17 @@ leaps<-regsubsets(Y ~ X1 + X2 + X3, data=data1,nbest=1)
 summary(leaps)
 
 anova(stepSR,leaps)
+
+# Question 2
+data2 = read.xls("Assignment_3_Data.xlsx",sheet="Data_2" ,header=TRUE)
+head(data2)
+
+# (a)
+
+boxplot(Y~W*Z,main = "Y versus interaction of W and Z",xlab="Combinations of W and Z",ylab="Y",col=2:4,data=data2)
+
+# (b)
+
+interaction.plot(data2$W,data2$Z,data2$Y,type="b",col=c(1:3),leg.bty="0",
+	lwd=2,pch=c(18,24,22),trace.label="Factor Z",xlab="factor W" ,
+	ylab="Mean of Y", main = "Interaction plot of mean Y per levels of factors W and Z",data=data2)
