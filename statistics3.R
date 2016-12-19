@@ -142,6 +142,13 @@ leaps<-regsubsets(Y ~ X1 + X2 + X3, data=data1,nbest=1)
 summary(leaps)
 
 anova(stepSR,leaps)
+#(h)
+print("best model is the stepwise regression")
+# (i)
+coefficients(stepSR)
+confint(stepSR,level=0.95)
+predict(stepSR,data2(X1=3.1,X2=3.75,X3=1.2),interval="confidence")
+predict(stepSR,data2(X1=3.1,X2=3.75,X3=1.2),interval="prediction")
 
 # Question 2
 data2 = read.xls("Assignment_3_Data.xlsx",sheet="Data_2" ,header=TRUE)
