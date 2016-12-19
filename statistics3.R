@@ -70,3 +70,12 @@ kruskal.test(Y~factor(W),data=data1)
 kruskal.test(X1~factor(W),data=data1)
 kruskal.test(X2~factor(W),data=data1)
 kruskal.test(X3~factor(W),data=data1)
+
+# (c)
+library(gclus)
+# get columns Y X1 X2 X3 of our data
+dta<-data1[c(1,2,3,4)]
+dta.r<-abs(cor(dta))
+dta.col<-dmat.color(dta.r)
+dta.o<-order.single(dta.r)
+cpairs(dta,dta.o,panel.colors=dta.col,gap=.5,main="Correlation matrix")
