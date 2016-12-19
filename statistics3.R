@@ -103,3 +103,19 @@ dta.o<-order.single(dta.r)
 cpairs(dta,dta.o,panel.colors=dta.col,gap=.5,main="Correlation matrix")
 
 # (e)
+# Individually
+regression_fit_Y_X1<-lm(Y ~ X1,data=data1)
+plot(regression_fit_Y_X1)
+regression_fit_Y_X2<-lm(Y ~ X2,data=data1)
+plot(regression_fit_Y_X2)
+# in the above we can clearly see influential points
+# to corrent:we must rerun the same of Y versus X2 without these points
+regression_fit_Y_X3<-lm(Y ~ X3,data=data1)
+plot(regression_fit_Y_X3)
+
+# OR DO THIS for the whole model eg Y ~ X1 + X2 + X3
+fitall<-lm(formula = Y~ X1+X2+X3,data=data1)
+summary(fitall)
+anova(fitall)
+
+# (g)
