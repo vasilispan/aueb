@@ -2,7 +2,7 @@ print("---- Msc in Data Science  ---- ")
 print("Probability and Statistics for Data Analysis   --- Assignment 3")
 print("--- Author: Chrysanthos Lianos ---")
 require(gdata)
-#Question 1
+print("Question 1")
 data1 = read.xls("Assignment_3_Data.xlsx",sheet="Data1" ,header=TRUE)
 head(data1)
 #(a)
@@ -150,7 +150,7 @@ confint(stepSR,level=0.95)
 predict(stepSR,data.frame(X1=3.1,X2=3.75,X3=1.2),interval="confidence")
 predict(stepSR,data.frame(X1=3.1,X2=3.75,X3=1.2),interval="prediction")
 
-# Question 2
+print("Question 2")
 data2 = read.xls("Assignment_3_Data.xlsx",sheet="Data_2" ,header=TRUE)
 head(data2)
 
@@ -178,7 +178,7 @@ fit<-aov(Y~Y*W*Z,data=data2)
 plot(fit)
 print("As previously shown, again the model does not satisfy the assumptions")
 
-# Question 3
+print("Question 3")
 # (a)
 data3 = read.xls("Assignment_3_Data.xlsx",sheet="Data3" ,header=TRUE)
 head(data3)
@@ -191,3 +191,9 @@ myplot<-ggplot(data3,aes(Y,T,colour=D),main="Plot of Y versus T") + geom_point()
 myplot
 
 # (b)
+newfit<-lm(Y~T*factor(D),data=data3)
+summary(newfit)
+
+# (c)
+print("Model does not satisfy assumptions, as there is clearly a pattern in the 'Residuals vs Fitted' plot
+	and the others")
