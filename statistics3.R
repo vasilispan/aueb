@@ -153,3 +153,22 @@ boxplot(Y~W*Z,main = "Y versus interaction of W and Z",xlab="Combinations of W a
 interaction.plot(data2$W,data2$Z,data2$Y,type="b",col=c(1:3),leg.bty="0",
 	lwd=2,pch=c(18,24,22),trace.label="Factor Z",xlab="factor W" ,
 	ylab="Mean of Y", main = "Interaction plot of mean Y per levels of factors W and Z",data=data2)
+
+# (c)
+fit<-aov(Y~W*Z,data=data2)
+fit
+summary(fit)
+layout(matrix(1:4,2,2))
+plot(fit)
+
+print("The model does not fit the assumptions. To begin with, the 'Residuals vs Fitted' plot has a pattern to it
+	, so it is not homoscedastic by nature")
+# Now with the interaction term
+fit<-aov(Y~Y*W*Z,data=data2)
+plot(fit)
+print("As previously shown, again the model does not satisfy the assumptions")
+
+# Question 3
+# (a)
+data3 = read.xls("Assignment_3_Data.xlsx",sheet="Data3" ,header=TRUE)
+head(data3)
