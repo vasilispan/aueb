@@ -30,18 +30,12 @@ summary(fitX3_W)
 layout(matrix(1:4,2,2))
 plot(fitX3_W,main="Summary plot for aov(Y,X3)")
 
-# and some qqplots 
-qqnorm(fitY_W$residuals,main = "QQnorm for Y~W")
-qqline(fitY_W$residuals,col="red",lty=1,lwd=2)
-
-qqnorm(fitX1_W$residuals,main = "QQnorm for X1~W")
-qqline(fitX1_W$residuals,col="red",lty=1,lwd=2)
-
-qqnorm(fitX2_W$residuals,main = "QQnorm for X2~W")
-qqline(fitX2_W$residuals,col="red",lty=1,lwd=2)
-
-qqnorm(fitX3_W$residuals,main = "QQnorm for X3~W")
-qqline(fitX3_W$residuals,col="red",lty=1,lwd=2)
+# and plotmeans
+library(gplots)
+plotmeans(data1$Y~factor(data1$W),xlab= "Y",ylab="levels of W ")
+plotmeans(data1$X1~factor(data1$W),xlab= "X1",ylab="levels of W ")
+plotmeans(data1$X2~factor(data1$W),xlab= "X2",ylab="levels of W ")
+plotmeans(data1$X3~factor(data1$W),xlab= "X3",ylab="levels of W ")
 
 #(iii)
 #we reject the null hypothesis that there are not signficant mean differences between groups the levels of 
@@ -70,3 +64,9 @@ print(LSD.test(data1$Y,factor(data1$W),DFerror=DFE,MSerror=MSE_Y_W,p.adj="bonfer
 print(LSD.test(data1$X1,factor(data1$W),DFerror=DFE,MSerror=MSE_X1_W,p.adj="bonferroni"))
 print(LSD.test(data1$X2,factor(data1$W),DFerror=DFE,MSerror=MSE_X2_W,p.adj="bonferroni"))
 print(LSD.test(data1$X3,factor(data1$W),DFerror=DFE,MSerror=MSE_X3_W,p.adj="bonferroni"))
+
+# (b)
+kruskal.test(Y~factor(W),data=data1)
+kruskal.test(X1~factor(W),data=data1)
+kruskal.test(X2~factor(W),data=data1)
+kruskal.test(X3~factor(W),data=data1)
