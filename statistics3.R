@@ -30,7 +30,7 @@ summary(fitX3_W)
 layout(matrix(1:4,2,2))
 plot(fitX3_W,main="Summary plot for aov(Y,X3)")
 
-#(iii)
+# and some qqplots 
 qqnorm(fitY_W$residuals,main = "QQnorm for Y~W")
 qqline(fitY_W$residuals,col="red",lty=1,lwd=2)
 
@@ -43,4 +43,30 @@ qqline(fitX2_W$residuals,col="red",lty=1,lwd=2)
 qqnorm(fitX3_W$residuals,main = "QQnorm for X3~W")
 qqline(fitX3_W$residuals,col="red",lty=1,lwd=2)
 
+#(iii)
+#we reject the null hypothesis that there are not signficant mean differences between groups the levels of 
+# the categorical variable W
+# Some alternatives (atleast for homegeneity of variances) are the bartlett.test and fligner.test
+bartlett.test(Y~factor(W),data=data1)
+bartlett.test(X1~factor(W),data=data1)
+bartlett.test(X2~factor(W),data=data1)
+bartlett.test(X3~factor(W),data=data1)
+fligner.test(Y~factor(W),data=data1)
+fligner.test(X1~factor(W),data=data1)
+fligner.test(X2~factor(W),data=data1)
+fligner.test(X3~factor(W),data=data1)
 
+# (iv)
+# An alternative is the LSD test 
+library(agricolae)
+
+DFE <- fitY_W$df.residual
+MSE_Y_W <-deviance(fitY_W)/DFE
+MSE_X1_W<-deviance(fitX1_W)/DFE
+MSE_X2_W<-deviance(fitX2_W)/DFE
+MSE_X3_W<-deviance(fitX3_W)/DFE
+
+print(LSD.test(data1$Y,factor(data1$W),DFerror=DFE,MSerror=MSE_Y_W,p.adj="bonferroni"))
+print(LSD.test(data1$X1,factor(data1$W),DFerror=DFE,MSerror=MSE_X1_W,p.adj="bonferroni"))
+print(LSD.test(data1$X2,factor(data1$W),DFerror=DFE,MSerror=MSE_X2_W,p.adj="bonferroni"))
+print(LSD.test(data1$X3,factor(data1$W),DFerror=DFE,MSerror=MSE_X3_W,p.adj="bonferroni"))
