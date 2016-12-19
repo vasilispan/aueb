@@ -1,3 +1,6 @@
+print("---- Msc in Data Science  ---- ")
+print("Probability and Statistics for Data Analysis   --- Assignment 3")
+print("--- Author: Chrysanthos Lianos ---")
 require(gdata)
 #Question 1
 data1 = read.xls("Assignment_3_Data.xlsx",sheet="Data1" ,header=TRUE)
