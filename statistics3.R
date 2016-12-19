@@ -113,9 +113,29 @@ plot(regression_fit_Y_X2)
 regression_fit_Y_X3<-lm(Y ~ X3,data=data1)
 plot(regression_fit_Y_X3)
 
-# OR DO THIS for the whole model eg Y ~ X1 + X2 + X3
-fitall<-lm(formula = Y~ X1+X2+X3,data=data1)
-summary(fitall)
-anova(fitall)
 
 # (g)
+
+#fitall<-lm(formula = Y~ X1+X2+X3,data=data1)
+#summary(fitall)
+#anova(fitall)
+#fit1<-lm(formula = Y~X1+X2,data=data1)
+#anova(fitall,fit1)
+#fit2<-lm(formula = Y~X1+X3,data=data1)
+#anova(fitall,fit2)
+#fit3<-lm(formula = Y~X2+X3,data=data1)
+#anova(fitall,fit3)
+
+# stepwise regression method
+fitnull<-lm(Y ~ 1,data=data1)
+stepSR<-step(fitnull, scope=list(lower = ~ 1, upper = ~ X1 + X2 +X3),direction="both", data=data1)
+stepSR$anova
+
+# all subsets
+library(alr3)
+library(leaps)
+
+leaps<-regsubsets(Y ~ X1 + X2 + X3, data=data1,nbest=1)
+summary(leaps)
+
+anova(stepSR,leaps)
