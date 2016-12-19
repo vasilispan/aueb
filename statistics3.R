@@ -30,6 +30,19 @@ summary(fitX3_W)
 layout(matrix(1:4,2,2))
 plot(fitX3_W,main="Summary plot for aov(Y,X3)")
 
+# and some qqplots 
+qqnorm(fitY_W$residuals,main = "QQnorm for Y~W")
+qqline(fitY_W$residuals,col="red",lty=1,lwd=2)
+
+qqnorm(fitX1_W$residuals,main = "QQnorm for X1~W")
+qqline(fitX1_W$residuals,col="red",lty=1,lwd=2)
+
+qqnorm(fitX2_W$residuals,main = "QQnorm for X2~W")
+qqline(fitX2_W$residuals,col="red",lty=1,lwd=2)
+
+qqnorm(fitX3_W$residuals,main = "QQnorm for X3~W")
+qqline(fitX3_W$residuals,col="red",lty=1,lwd=2)
+
 # and plotmeans
 library(gplots)
 plotmeans(data1$Y~factor(data1$W),xlab= "Y",ylab="levels of W ")
@@ -65,6 +78,13 @@ print(LSD.test(data1$X1,factor(data1$W),DFerror=DFE,MSerror=MSE_X1_W,p.adj="bonf
 print(LSD.test(data1$X2,factor(data1$W),DFerror=DFE,MSerror=MSE_X2_W,p.adj="bonferroni"))
 print(LSD.test(data1$X3,factor(data1$W),DFerror=DFE,MSerror=MSE_X3_W,p.adj="bonferroni"))
 
+# another alternative is pairwise.t.test
+pairwise.t.test(data1$Y,factor(data1$W),p.adjust.method="bonferroni")
+pairwise.t.test(data1$X1,factor(data1$W),p.adjust.method="bonferroni")
+pairwise.t.test(data1$X2,factor(data1$W),p.adjust.method="bonferroni")
+pairwise.t.test(data1$X3,factor(data1$W),p.adjust.method="bonferroni")
+
+
 # (b)
 kruskal.test(Y~factor(W),data=data1)
 kruskal.test(X1~factor(W),data=data1)
@@ -73,9 +93,13 @@ kruskal.test(X3~factor(W),data=data1)
 
 # (c)
 library(gclus)
-# get columns Y X1 X2 X3 of our data
-dta<-data1[c(1,2,3,4)]
+pairs(data1[c(1,2,3,4)])
+
+# (d)
+dta<-data1[c(1,2,3,4,)]
 dta.r<-abs(cor(dta))
 dta.col<-dmat.color(dta.r)
 dta.o<-order.single(dta.r)
 cpairs(dta,dta.o,panel.colors=dta.col,gap=.5,main="Correlation matrix")
+
+# (e)
