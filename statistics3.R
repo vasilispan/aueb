@@ -54,9 +54,9 @@ plotmeans(data1$X2~factor(data1$W),xlab= "X2",ylab="levels of W ")
 plotmeans(data1$X3~factor(data1$W),xlab= "X3",ylab="levels of W ")
 
 #(iii)
-#we reject the null hypothesis that there are not signficant mean differences between groups the levels of 
-# the categorical variable W
-# Some alternatives (atleast for homegeneity of variances) are the bartlett.test and fligner.test
+print("we reject the null hypothesis that there are not signficant mean differences between groups the levels of 
+the categorical variable W")
+print(" Some alternatives (atleast for homegeneity of variances) are the bartlett.test and fligner.test")
 bartlett.test(Y~factor(W),data=data1)
 bartlett.test(X1~factor(W),data=data1)
 bartlett.test(X2~factor(W),data=data1)
