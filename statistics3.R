@@ -185,7 +185,7 @@ head(data3)
 library(ggplot2)
 library(RColorBrewer)
 mycolors<-brewer.pal(4,"Set1")
-names(mycolors) < levels(data3$D)
+names(mycolors) <- levels(data3$D)
 colScale<-scale_colour_manual(name="D",values=mycolors)
 myplot<-ggplot(data3,aes(Y,T,colour=D),main="Plot of Y versus T") + geom_point()
 myplot
