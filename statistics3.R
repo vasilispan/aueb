@@ -151,7 +151,7 @@ predict(stepSR,data.frame(X1=3.1,X2=3.75,X3=1.2),interval="confidence")
 predict(stepSR,data.frame(X1=3.1,X2=3.75,X3=1.2),interval="prediction")
 
 print("Question 2")
-data2 = read.xls("Assignment_3_Data.xlsx",sheet="Data_2" ,header=TRUE)
+data2 = read.xls("Assignment_3_Data.xlsx",sheet="Data2" ,header=TRUE)
 head(data2)
 
 # (a)
