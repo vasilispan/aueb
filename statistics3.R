@@ -99,7 +99,7 @@ library(gclus)
 pairs(data1[c(1,2,3,4)])
 
 # (d)
-dta<-data1[c(1,2,3,4,)]
+dta<-data1[c(1,2,3,4)]
 dta.r<-abs(cor(dta))
 dta.col<-dmat.color(dta.r)
 dta.o<-order.single(dta.r)
