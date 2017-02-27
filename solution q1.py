@@ -41,7 +41,7 @@ t1 = datetime.now()
 
 
 files = []
-s = r"C:\Users\Khaled\Documents\AUEB\Data Mgt\ass2\part1\hw2-rdf-2016_1.dat"
+s = r"C:\Users\Khaled\Documents\AUEB\Data Mgt\ass2\part1\hw2-rdf-2016_test.txt"
 files.append(s)
 
 
@@ -56,7 +56,9 @@ for ii, f in enumerate(files):
         df['EDGES'] = df.stack().str.contains(r'^\"|<|_:').astype(np.uint8).sum(level=0)-1
         df[df['EDGES'] >= 3] = 3
         df[df['EDGES'] <= 2] = 2
-        tdf = tdf.append(df[[0,'EDGES']], ignore_index=True)
+        df.rename(columns={0:'SUBJECT'}, inplace=True)
+
+        tdf = tdf.append(df[['SUBJECT','EDGES']], ignore_index=True)
         del df
         tdf = tdf.groupby('SUBJECT', as_index=False).sum()
         i += chunkk
@@ -70,8 +72,9 @@ tdf = tdf[['EDGES','y']].groupby('EDGES', as_index=False).sum()
 #tdf = tdf[['bucket','y']].groupby('bucket').sum()
 
 #tdf.plot(kind='bar')
-#print(tdf)
 
+print(tdf)
+print(tdf.shape)
 
 
 #zdf is ready with all subjects, and with count o
