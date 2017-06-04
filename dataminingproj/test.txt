@@ -1,1 +1,5 @@
-test
+http://www-personal.umich.edu/~mejn/netdata/netscience.zip
+
+http://people.sc.fsu.edu/~jburkardt/data/metis_graph/4elt.graph
+
+https://snap.stanford.edu/data/web-BerkStan.txt.gz
